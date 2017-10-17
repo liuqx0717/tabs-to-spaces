@@ -39,6 +39,12 @@ namespace tab2space {
             Text = Text + "  " + Program.Version;
 
             button1.Font = button2.Font = button3.Font = button4.Font = SystemFonts.MessageBoxFont;
+            Font font = new Font("Consolas", 11.25F, GraphicsUnit.Point);
+            if (font.Name != "Consolas") {
+                font = new Font("Courier New", 11.25F, GraphicsUnit.Point);
+            }
+            textBox1.Font = font;
+            
 
             AddControlsByProgram();
             InitializeByProgramData();
@@ -126,9 +132,8 @@ namespace tab2space {
                 while ((tabposition = line.IndexOf('\t', start)) != -1) {
                     substring = line.Substring(start, tabposition - start);
                     float substringpixelwidth = GetStringDisplayWidth(substring, textBox1.Font);
-                    substringwidth = (int)(Math.Round(substringpixelwidth / unitwidth)) - 1;
+                    substringwidth = substringpixelwidth != 0 ? (int)(Math.Round(substringpixelwidth / unitwidth)) - 1 : 0;
                     paddingwidth = tabwidth - (substringwidth % tabwidth);
-                    if (paddingwidth == 0) paddingwidth = 4;
                     sb.Append(substring);
                     sb.Append(' ', paddingwidth);
                     start = tabposition + 1;
@@ -190,6 +195,11 @@ namespace tab2space {
                 return null;
             }
 
+        }
+
+        private void SetClipboardText(string str)
+        {
+            Clipboard.SetData("Text", str);
         }
 
         private Bitmap GetDragCornerPicture(int size)
@@ -344,6 +354,11 @@ namespace tab2space {
             }
         }
 
+        private void CopyTextToClipboard()
+        {
+            SetClipboardText(textBox1.Text);
+        }
+
         private void ShowAboutDialog()
         {
             AboutDialog aboutDialog = new AboutDialog();
@@ -416,6 +431,10 @@ namespace tab2space {
                 PasteAndConvert();
                 return true;
             }
+            if (keyData == (Keys.Control | Keys.Shift | Keys.C)) {
+                CopyTextToClipboard();
+                return true;
+            }
             return base.ProcessCmdKey(ref msg, keyData);
         }
 
@@ -432,7 +451,7 @@ namespace tab2space {
 
         private void button2_Click(object sender, EventArgs e)
         {
-            ClearText();
+            CopyTextToClipboard();
         }
 
         private void textBox1_TextChanged(object sender, EventArgs e)
@@ -488,6 +507,11 @@ namespace tab2space {
         private void trackBar1_Scroll(object sender, EventArgs e)
         {
 
+        }
+
+        private void clearToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            ClearText();
         }
     }
 

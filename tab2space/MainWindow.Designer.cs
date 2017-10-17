@@ -45,6 +45,8 @@
             this.colorDialog1 = new System.Windows.Forms.ColorDialog();
             this.colorDialog2 = new System.Windows.Forms.ColorDialog();
             this.toolTip1 = new System.Windows.Forms.ToolTip(this.components);
+            this.editToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.clearToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             ((System.ComponentModel.ISupportInitialize)(this.trackBar1)).BeginInit();
             this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
@@ -70,7 +72,7 @@
             // button1
             // 
             this.button1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.button1.Location = new System.Drawing.Point(177, 352);
+            this.button1.Location = new System.Drawing.Point(101, 352);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(75, 23);
             this.button1.TabIndex = 1;
@@ -94,18 +96,19 @@
             // button2
             // 
             this.button2.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.button2.Location = new System.Drawing.Point(15, 352);
+            this.button2.Location = new System.Drawing.Point(295, 352);
             this.button2.Name = "button2";
             this.button2.Size = new System.Drawing.Size(75, 23);
             this.button2.TabIndex = 4;
-            this.button2.Text = "Clear";
+            this.button2.Text = "Copy";
+            this.toolTip1.SetToolTip(this.button2, "Ctrl + Shift + C");
             this.button2.UseVisualStyleBackColor = true;
             this.button2.Click += new System.EventHandler(this.button2_Click);
             // 
             // button3
             // 
             this.button3.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.button3.Location = new System.Drawing.Point(96, 352);
+            this.button3.Location = new System.Drawing.Point(20, 352);
             this.button3.Name = "button3";
             this.button3.Size = new System.Drawing.Size(75, 23);
             this.button3.TabIndex = 5;
@@ -116,7 +119,7 @@
             // button4
             // 
             this.button4.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.button4.Location = new System.Drawing.Point(258, 352);
+            this.button4.Location = new System.Drawing.Point(182, 352);
             this.button4.Name = "button4";
             this.button4.Size = new System.Drawing.Size(108, 23);
             this.button4.TabIndex = 6;
@@ -129,7 +132,8 @@
             // 
             this.menuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.menuToolStripMenuItem,
-            this.formatToolStripMenuItem});
+            this.formatToolStripMenuItem,
+            this.editToolStripMenuItem});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
             this.menuStrip1.Size = new System.Drawing.Size(557, 24);
@@ -185,14 +189,14 @@
             // FontsToolStripMenuItem
             // 
             this.FontsToolStripMenuItem.Name = "FontsToolStripMenuItem";
-            this.FontsToolStripMenuItem.Size = new System.Drawing.Size(134, 22);
+            this.FontsToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
             this.FontsToolStripMenuItem.Text = "Fonts...";
             this.FontsToolStripMenuItem.Click += new System.EventHandler(this.FontsToolStripMenuItem_Click);
             // 
             // wordwrapToolStripMenuItem
             // 
             this.wordwrapToolStripMenuItem.Name = "wordwrapToolStripMenuItem";
-            this.wordwrapToolStripMenuItem.Size = new System.Drawing.Size(134, 22);
+            this.wordwrapToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
             this.wordwrapToolStripMenuItem.Text = "Word Wrap";
             this.wordwrapToolStripMenuItem.Click += new System.EventHandler(this.wordwrapToolStripMenuItem_Click);
             // 
@@ -216,6 +220,21 @@
             this.toolTip1.AutoPopDelay = 5000;
             this.toolTip1.InitialDelay = 300;
             this.toolTip1.ReshowDelay = 100;
+            // 
+            // editToolStripMenuItem
+            // 
+            this.editToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.clearToolStripMenuItem});
+            this.editToolStripMenuItem.Name = "editToolStripMenuItem";
+            this.editToolStripMenuItem.Size = new System.Drawing.Size(39, 20);
+            this.editToolStripMenuItem.Text = "Edit";
+            // 
+            // clearToolStripMenuItem
+            // 
+            this.clearToolStripMenuItem.Name = "clearToolStripMenuItem";
+            this.clearToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.clearToolStripMenuItem.Text = "Clear";
+            this.clearToolStripMenuItem.Click += new System.EventHandler(this.clearToolStripMenuItem_Click);
             // 
             // MainWindow
             // 
@@ -265,6 +284,8 @@
         private System.Windows.Forms.ToolStripMenuItem FontsToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem wordwrapToolStripMenuItem;
         private System.Windows.Forms.ToolTip toolTip1;
+        private System.Windows.Forms.ToolStripMenuItem editToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem clearToolStripMenuItem;
     }
 }
 

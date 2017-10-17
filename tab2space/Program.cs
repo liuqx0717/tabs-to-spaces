@@ -1,6 +1,5 @@
 ﻿using System;
 using System.IO;
-using System.Drawing;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
@@ -56,7 +55,7 @@ namespace tab2space {
         private static string ProgramDataFile;
         public static _ProgramData ProgramData;
         private static XmlSerializer serializer;
-        public const string Version = "1.0.1";
+        public const string Version = "1.0.3";
 
         [STAThread]
         static void Main()
